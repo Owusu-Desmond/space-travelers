@@ -1,12 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import missionsReducer from './missions/missions';
 
-const preloadedState = [];
-
-const rootReducer = (state) => state;
+const rootReducer = combineReducers({
+  missions: missionsReducer,
+});
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState,
 });
 
 export default store;
