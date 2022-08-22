@@ -1,11 +1,20 @@
 import './styling/App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
-    </div>
+      <div className="App-content">
+        <Routes>
+          <Route path="/" element={<h1>this is my rockets page</h1>} />
+          <Route path="/missions" element={<h2>this is my missions page</h2>} />
+          <Route path="/profile" element={<h3>this is my profile page</h3>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+
   );
 }
 

@@ -23,3 +23,7 @@ nav {
   display: flex;
   gap: 30px;
 }
+
+.active {
+  border-bottom: 2px solid blue;
+}
