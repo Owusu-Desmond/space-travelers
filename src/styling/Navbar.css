@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo-text {
+  font-size: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}

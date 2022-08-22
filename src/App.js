@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import './styling/App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Hello space traveler!
-      </header>
+      <Navbar />
     </div>
   );
 }
