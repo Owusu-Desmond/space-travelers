@@ -15,7 +15,12 @@ export const addMissions = createAsyncThunk(
   FETCH_MISSIONS,
   async () => {
     const res = await axios.get('https://api.spacexdata.com/v3/missions');
-    const { data } = await res;
+    let { data } = await res;
+    data = data.map((el) => ({
+      name: el.mission_name,
+      id: el.mission_id,
+      description: el.description,
+    }));
     return { data };
   },
 );
