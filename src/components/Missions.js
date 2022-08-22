@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMissions } from '../redux/missions/missions';
+import '../styling/Missions.css';
 
 export default function Missions() {
   const dispatch = useDispatch();
@@ -11,21 +12,26 @@ export default function Missions() {
     }
   }, []);
 
-  console.log(missions);
   return (
     <div className="missions-container">
-      {missions.map((mission) => (
-        <div className="row" key={mission.id}>
-          <div>
+      <div className="row first-row">
+        <div>Mission</div>
+        <div>Description</div>
+        <div>Status</div>
+        <div />
+      </div>
+      {missions.map((mission, index) => (
+        <div className={index % 2 === 0 ? 'row lavender' : 'row'} key={mission.id}>
+          <div className="col-1">
             <p>{mission.name}</p>
           </div>
-          <div>
+          <div className="col-2">
             <p>{mission.description}</p>
           </div>
-          <div>
+          <div className="col-3">
             <p>NOT A MEMBER</p>
           </div>
-          <div>
+          <div className="col-4">
             <button type="button">Join Mission</button>
           </div>
         </div>

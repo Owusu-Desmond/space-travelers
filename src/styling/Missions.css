@@ -1,0 +1,27 @@
+.missions-container {
+  margin: 20px 50px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 1fr;
+  padding: 5px;
+  border: 1px solid gray;
+}
+
+.first-row,
+.col-1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.col-3,
+.col-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lavender {
+  background-color: lavender;
+}
