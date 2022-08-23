@@ -45,7 +45,11 @@ export default function Missions() {
             <p>{mission.description}</p>
           </div>
           <div className="col-3">
-            {mission.reserved ? <p>ACTIVE MEMBER</p> : <p>NOT A MEMBER</p>}
+            {mission.reserved ? (
+              <p className="active-member">ACTIVE MEMBER</p>
+            ) : (
+              <p className="nota-member">NOT A MEMBER</p>
+            )}
           </div>
           <div className="col-4">
             {mission.reserved ? (
@@ -54,6 +58,7 @@ export default function Missions() {
                   updateMissionStatus(mission);
                 }}
                 type="button"
+                className="leave-btn"
               >
                 Leave Mission
               </button>
@@ -63,6 +68,7 @@ export default function Missions() {
                   updateMissionStatus(mission);
                 }}
                 type="button"
+                className="join-btn"
               >
                 Join Mission
               </button>

@@ -25,3 +25,30 @@
 .lavender {
   background-color: lavender;
 }
+
+.join-btn,
+.leave-btn {
+  padding: 5px;
+  background-color: inherit;
+  border: 2px solid gray;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.leave-btn {
+  border-color: red;
+  color: red;
+}
+
+.active-member,
+.nota-member {
+  background-color: cornflowerblue;
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+  color: white;
+}
+
+.nota-member {
+  background-color: gray;
+}
