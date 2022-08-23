@@ -45,19 +45,25 @@ export default function Missions() {
             <p>{mission.description}</p>
           </div>
           <div className="col-3">
-            <p>NOT A MEMBER</p>
+            {mission.reserved ? <p>ACTIVE MEMBER</p> : <p>NOT A MEMBER</p>}
           </div>
           <div className="col-4">
             {mission.reserved ? (
-              <button onClick={() => {
-                updateMissionStatus(mission)
-              }} type="button">
+              <button
+                onClick={() => {
+                  updateMissionStatus(mission);
+                }}
+                type="button"
+              >
                 Leave Mission
               </button>
             ) : (
-              <button onClick={() => {
-                updateMissionStatus(mission)
-              }} type="button">
+              <button
+                onClick={() => {
+                  updateMissionStatus(mission);
+                }}
+                type="button"
+              >
                 Join Mission
               </button>
             )}
