@@ -1,12 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {
+  combineReducers, configureStore,
+} from '@reduxjs/toolkit';
+import reducer from './rocket/rocket';
 
-const preloadedState = [];
-
-const rootReducer = (state) => state;
+const rootReducer = combineReducers({
+  rocket: reducer,
+});
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState,
 });
 
 export default store;
