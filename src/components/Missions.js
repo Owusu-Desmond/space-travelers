@@ -1,16 +1,29 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMissions } from '../redux/missions/missions';
+import {
+  addJoining,
+  addMissions,
+  removeJoining,
+} from '../redux/missions/missions';
 import '../styling/Missions.css';
 
 export default function Missions() {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missions);
+
   useEffect(() => {
     if (missions.length === 0) {
       dispatch(addMissions());
     }
   }, []);
+
+  function updateMissionStatus(mission) {
+    if (mission.reserved) {
+      dispatch(removeJoining(mission.id));
+    } else {
+      dispatch(addJoining(mission.id));
+    }
+  }
 
   return (
     <div className="missions-container">
@@ -21,7 +34,10 @@ export default function Missions() {
         <div />
       </div>
       {missions.map((mission, index) => (
-        <div className={index % 2 === 0 ? 'row lavender' : 'row'} key={mission.id}>
+        <div
+          className={index % 2 === 0 ? 'row lavender' : 'row'}
+          key={mission.id}
+        >
           <div className="col-1">
             <p>{mission.name}</p>
           </div>
@@ -32,7 +48,19 @@ export default function Missions() {
             <p>NOT A MEMBER</p>
           </div>
           <div className="col-4">
-            <button type="button">Join Mission</button>
+            {mission.reserved ? (
+              <button onClick={() => {
+                updateMissionStatus(mission)
+              }} type="button">
+                Leave Mission
+              </button>
+            ) : (
+              <button onClick={() => {
+                updateMissionStatus(mission)
+              }} type="button">
+                Join Mission
+              </button>
+            )}
           </div>
         </div>
       ))}
