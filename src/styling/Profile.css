@@ -1,0 +1,29 @@
+.profile-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px auto;
+  grid-gap: 50px;
+}
+
+.profile-container h3 {
+  margin: 20px auto;
+}
+
+table,
+tr,
+td {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 15px;
+}
+
+@media screen and (max-width: 786px) {
+  .profile-container {
+    grid-template-columns: 1fr;
+  }
+}

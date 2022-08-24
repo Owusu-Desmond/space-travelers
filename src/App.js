@@ -3,6 +3,7 @@ import './styling/App.css';
 import Navbar from './components/Navbar';
 import RocketPage from './components/rocketPage';
 import Missions from './components/Missions';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<RocketPage />} />
           <Route path="/missions" element={<Missions />} />
-          <Route path="/profile" element={<h3>this is my profile page</h3>} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>
