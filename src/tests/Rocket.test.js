@@ -7,13 +7,16 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import RocketPage from '../components/rocketPage';
 import Profile from '../components/Profile';
 import rocketReducer from '../redux/rocket/rocket';
+import missionsReducer from '../redux/missions/missions';
 
 const initialState = {
   missions: [],
   rocket: [{
     id: 'falcon1',
     name: 'falcon 1',
+    type: 'rocket',
     description: 'Rocket that flies',
+    flickr_images: ['rocket1.jpg', 'rocket2.jpg'],
   }],
 };
 
@@ -44,7 +47,7 @@ describe('Test Rocket components', () => {
     expect(screen.getByText('No rocket reserved')).toBeInTheDocument();
 
     fireEvent.click(screen.getByText('Reserve Rocket'));
-    expect(screen.getAllByText('falcon 1').length).toEqual(1);
+    expect(screen.getAllByText('falcon 1').length).toEqual(2);
   });
 });
 
@@ -57,13 +60,17 @@ describe('Rocket reducer logic test', () => {
       rocket: [{
         id: 'falcon1',
         name: 'falcon 1',
+        type: 'rocket',
         description: 'Rocket that flies',
+        flickr_images: ['rocket1.jpg', 'rocket2.jpg'],
       }],
     };
     const newState = [{
       id: 'falcon1',
       name: 'falcon 1',
+      type: 'rocket',
       description: 'Rocket that flies',
+      flickr_images: ['rocket1.jpg', 'rocket2.jpg'],
       reserved: true,
     }];
     const action = {
