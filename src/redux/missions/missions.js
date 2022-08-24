@@ -5,7 +5,7 @@ const FETCH_MISSIONS = 'missions/fetch_missions';
 const ADD_JOINING = 'missions/add_joining';
 const REMOVE_JOINING = 'missions/remove_joining';
 
-export default function missionsReducer(state = {missions: []}, action) {
+export default function missionsReducer(state = [], action) {
   if (action.type === `${FETCH_MISSIONS}/fulfilled`) {
     return action.payload.data;
   }
