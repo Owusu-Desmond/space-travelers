@@ -1,6 +1,12 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
+
 ## Space Travelers
 
-...
+Space Travelers is a single-page web application built with react/redux for space travelers which help them to join space missions online and reserve rocket that fires and save their records to their profile page.
+
+## Screenshot
+
+https://user-images.githubusercontent.com/92303891/186620657-a4104924-372a-498a-b8a6-39b11c028d73.mp4
 
 ## Build With
 
@@ -18,7 +24,7 @@
 ## Live Demo Link
 
 Access the the online version of my application with this link
-[Live Demo](https://owusu-desmond.github.io/space-travelers/)
+[Live Demo](https://space-travelers-hub1.netlify.app/)
 
 
 ## Getting Started
