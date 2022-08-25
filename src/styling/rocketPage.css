@@ -1,0 +1,66 @@
+.rockets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
+}
+
+.rocket-card {
+  width: 90%;
+  margin: auto 5%;
+  display: grid;
+  grid-template-columns: 1.5fr 3fr;
+  grid-gap: 20px;
+}
+
+.rocket-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.rocket-card img {
+  width: 100%;
+}
+
+.rocket-card span {
+  background-color: rgb(16, 156, 156);
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.rocket-card .reservation-button {
+  background-color: rgb(45, 71, 219);
+  color: #fff;
+  padding: 5px;
+  width: fit-content;
+  border: none;
+  border-radius: 5px;
+}
+
+.rocket-card .cancel-reservation-button {
+  background-color: lightgray;
+  color: black;
+  padding: 5px;
+  width: fit-content;
+  border: none;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .rocket-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .rocket-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+}
