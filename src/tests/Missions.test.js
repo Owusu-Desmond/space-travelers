@@ -1,5 +1,7 @@
 import React from 'react';
-import { fireEvent, getByText, render, screen } from '@testing-library/react';
+import {
+  fireEvent, render, screen,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import Missions from '../components/Missions';
@@ -13,7 +15,7 @@ const initialState = {
     name: 'mission1',
     description: 'really cool mission',
   }],
-  rocket: []
+  rocket: [],
 };
 
 const rootReducer = combineReducers({
@@ -40,12 +42,17 @@ describe('component tests', () => {
   });
 
   it('should update the my profile page when clickin on reserving a mission', () => {
-    render(<Provider store={store}><Missions /><Profile /></Provider>);
+    render(
+      <Provider store={store}>
+        <Missions />
+        <Profile />
+      </Provider>,
+    );
     expect(screen.getByText('No mission joined')).toBeInTheDocument();
-    
+
     fireEvent.click(screen.getByText('Join Mission'));
     expect(screen.getAllByText('mission1').length).toEqual(2);
-  }) 
+  });
 });
 
 describe('reducer logic tests', () => {

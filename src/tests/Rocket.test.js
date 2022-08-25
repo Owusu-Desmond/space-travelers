@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  fireEvent, getByText, render, screen,
+  fireEvent, render, screen,
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
@@ -34,16 +34,18 @@ describe('Test Rocket components', () => {
   it('render rockect page component', () => {
     const rocket = render(<Provider store={store}><RocketPage /></Provider>);
     expect(rocket).toMatchSnapshot();
-  }),
+  });
   it('Display rocket page state from store to component', () => {
     render(<Provider store={store}><RocketPage /></Provider>);
     expect(screen.getByText('falcon 1')).toBeInTheDocument();
-  }),
+  });
   it('should update my profile page when click on reverse rocket', () => {
-    render(<Provider store={store}>
-      <RocketPage />
-      <Profile />
-    </Provider>);
+    render(
+      <Provider store={store}>
+        <RocketPage />
+        <Profile />
+      </Provider>,
+    );
     expect(screen.getByText('No rocket reserved')).toBeInTheDocument();
 
     fireEvent.click(screen.getByText('Reserve Rocket'));
@@ -54,17 +56,16 @@ describe('Test Rocket components', () => {
 describe('Rocket reducer logic test', () => {
   it('Reducer should return inital state when there is no action', () => {
     expect(rocketReducer(initialState, { type: undefined })).toBe(initialState);
-  }),
+  });
   it('Reducer should return newState with rocket when there is an action "RESERVE_ROCKET"', () => {
-    const initialState = {
-      rocket: [{
-        id: 'falcon1',
-        name: 'falcon 1',
-        type: 'rocket',
-        description: 'Rocket that flies',
-        flickr_images: ['rocket1.jpg', 'rocket2.jpg'],
-      }],
-    };
+    const initialState = [{
+      id: 'falcon1',
+      name: 'falcon 1',
+      type: 'rocket',
+      description: 'Rocket that flies',
+      flickr_images: ['rocket1.jpg', 'rocket2.jpg'],
+    }];
+
     const newState = [{
       id: 'falcon1',
       name: 'falcon 1',
